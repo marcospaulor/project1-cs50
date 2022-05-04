@@ -1,0 +1,23 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Search
+{% endblock %}
+
+{% block body %}
+    <h1>Result Pages</h1>
+
+    <ul class="w-50 list-group">
+        <!-- Se há search list, demonsta a entry pesquisada -->
+        {% if searchList %}
+            {% for entry in searchList %}
+                <li class="d-flex list-group-item-action">
+                    <a class="list-group-item list-group-item-action" href="/wiki/{{ entry }}">{{ entry }}</a>
+                </li>
+            {% endfor %}
+        {% else %}
+            No results found
+        {% endif %}
+    </ul>
+
+{% endblock %}

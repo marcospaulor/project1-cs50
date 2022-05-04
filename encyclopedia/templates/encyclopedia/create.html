@@ -1,0 +1,22 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Create
+{% endblock %}
+
+{% block body %}
+    {% if error %}
+        <div class="d-flex flex-column alert alert-danger">
+            {{ error }}
+            <a href="{% url 'create' %}" class="btn btn-danger m-2 w-25 align-self-center">Return</a>
+        </div>
+    {% else %}
+        <h1>Create your page</h1>
+
+        <form class="d-flex flex-column w-75" action="" method="post">
+            {% csrf_token %}
+            {{ formulary }}
+            <input class="btn btn-primary m-3 w-25 align-self-center" type="submit" value="Save">
+        </form>
+    {% endif %}
+{% endblock %}
